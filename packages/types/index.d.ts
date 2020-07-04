@@ -135,6 +135,10 @@ export interface SnapConfig {
   unit?: UnitConfiguration;
 }
 
+export interface AccountConfig {
+  publicKey: string;
+}
+
 // Polkadot types
 
 export type Callback<T> = (arg: T) => void;

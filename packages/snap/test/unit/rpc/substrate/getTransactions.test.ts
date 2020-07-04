@@ -5,7 +5,7 @@ import sinon from "sinon";
 import axios from "axios";
 import {getTransactions} from "../../../../src/rpc/substrate/getTransactions";
 import {testAppKey} from "../keyPairTestConstants";
-import {defaultConfiguration, westendConfiguration} from "../../../../src/configuration/predefined";
+import {westendConfiguration} from "../../../../src/configuration/predefined";
 
 chai.use(sinonChai);
 
@@ -16,7 +16,7 @@ describe('Test rpc handler function: getTransactions', function() {
 
   beforeEach(function () {
     walletStub.getAppKey.returns(testAppKey);
-    walletStub.getPluginState.returns({polkadot: {configuration: westendConfiguration}});
+    walletStub.getPluginState.returns({polkadot: {configuration: westendConfiguration, account: {publicKey: ""}}});
   });
 
   afterEach(function() {
@@ -28,7 +28,7 @@ describe('Test rpc handler function: getTransactions', function() {
     axiosStub.resolves(Promise.resolve({data: {data: ["test-transaction"]}, status: 200}));
     const transactions = await getTransactions(walletStub);
     expect(walletStub.getAppKey).to.have.been.calledOnce;
-    expect(walletStub.getPluginState).to.have.been.calledOnce;
+    expect(walletStub.getPluginState).to.have.been.calledTwice;
     expect(axios.get).to.have.been.calledOnce;
     expect(transactions).to.be.deep.eq(["test-transaction"]);
   });
@@ -37,7 +37,7 @@ describe('Test rpc handler function: getTransactions', function() {
     axiosStub.resolves(Promise.resolve({data: "", status: 500}));
     const transactions = await getTransactions(walletStub);
     expect(walletStub.getAppKey).to.have.been.calledOnce;
-    expect(walletStub.getPluginState).to.have.been.calledOnce;
+    expect(walletStub.getPluginState).to.have.been.calledTwice;
     expect(axios.get).to.have.been.calledOnce;
     expect(transactions).to.be.eq(null);
   });

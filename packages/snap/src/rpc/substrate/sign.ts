@@ -14,7 +14,7 @@ export async function signPayloadJSON(
   );
   if (confirmation) {
     const extrinsic = api.registry.createType('ExtrinsicPayload', payload, { version: payload.version });
-    const keyPair = await getKeyPair(wallet);
+    const keyPair = await getKeyPair(wallet, true);
     return extrinsic.sign(keyPair);
   }
 }
@@ -29,7 +29,7 @@ export async function signPayloadRaw(
   );
   // return seed if user confirmed action
   if (confirmation) {
-    const keyPair = await getKeyPair(wallet);
+    const keyPair = await getKeyPair(wallet, true);
     const signedBytes = keyPair.sign(hexToU8a(payload.data));
     return {
       signature: u8aToHex(signedBytes)

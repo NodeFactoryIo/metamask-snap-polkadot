@@ -17,7 +17,7 @@ export function getDefaultConfiguration(networkName: string): SnapConfig {
 
 export function getConfiguration(wallet: Wallet): SnapConfig {
   const state = wallet.getPluginState();
-  if (!state || !state.polkadot.config) {
+    if (!(state) || !(state.polkadot.config)) {
     return defaultConfiguration;
   }
   return state.polkadot.config;

@@ -25,7 +25,8 @@ describe('Test rpc handler function: configure', function() {
     expect(result).to.be.deep.eq(kusamaConfiguration);
     expect(walletStub.updatePluginState).to.have.been.calledOnceWithExactly({
       polkadot: {
-        config: kusamaConfiguration
+          config: kusamaConfiguration,
+          account: {publicKey: ""}
       }
     });
     expect(walletStub.updatePluginState).to.have.been.calledOnce;
@@ -41,7 +42,8 @@ describe('Test rpc handler function: configure', function() {
     expect(result).to.be.deep.eq(westendConfiguration);
     expect(walletStub.updatePluginState).to.have.been.calledOnceWithExactly({
       polkadot: {
-        config: westendConfiguration
+          config: westendConfiguration,
+          account: {publicKey: ""}
       }
     });
     expect(walletStub.updatePluginState).to.have.been.calledOnce;
@@ -64,7 +66,8 @@ describe('Test rpc handler function: configure', function() {
     expect(result).to.be.deep.eq(customConfiguration);
     expect(walletStub.updatePluginState).to.have.been.calledOnceWithExactly({
       polkadot: {
-        config: customConfiguration
+          config: customConfiguration,
+          account: {publicKey: ""}
       }
     });
     expect(walletStub.updatePluginState).to.have.been.calledOnce;
@@ -82,7 +85,8 @@ describe('Test rpc handler function: configure', function() {
     expect(result).to.be.deep.eq(customConfiguration);
     expect(walletStub.updatePluginState).to.have.been.calledOnceWithExactly({
       polkadot: {
-        config: customConfiguration
+          config: customConfiguration,
+          account: {publicKey: ""}
       }
     });
     expect(walletStub.updatePluginState).to.have.been.calledOnce;

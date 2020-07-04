@@ -1,3 +1,3 @@
-export const testAppKey = "test-app-key-6upaCfHM9RKAKU62Dg6upaCfH7g6upaCfH7";
-export const testPublicKey = "0x3f953693f8dfe6d4f9be593036e55c95fdd23f24e5fd3027893cf35538e0e31d";
-export const testAddress = "5DW5CXHWbM13Az7aetLQVUEviNq8WeXFQanHNPVMmzyRYKvX";
+export const testAppKey = "test6upaCfHM9RKAKU62Dg6upaCfH7g6upaCfH7appkey";
+export const testPublicKey = "0x1b9935474652565f5fb2d61759ecc29168fcaed4d71c9caa040ccedb9c642876";
+export const testAddress = "5CgtfNT4Fbigjkriczssx1fvn7pqzkUbAoRAnXJPYTFRrQqQ";
